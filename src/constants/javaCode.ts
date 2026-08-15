@@ -52,103 +52,118 @@ public void keyPressed(KeyEvent e) {
 }`);
 
 export const obfuscatedCode: String = dedent(`
+/*
+ * Unable to fully structure code
+ * Enabled aggressive block sorting
+ * Enabled unnecessary exception pruning
+ * Enabled aggressive exception aggregation
+ */
 @Override
 public void keyPressed(KeyEvent var1_1) {
-    var4_2 = -1635583085;
-    var3_3 = -1635583085 ^ var4_2;
-    var2_4 = iiiiiiIiIi.iiiiiIIiii("oK", (Integer)-377509550, (Object)var1_1);
-    var3_3 = var2_4 == (-1312412122 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("IK", (Integer)-377509549)) ? 274049144 ^ var4_2 : 1932505546 ^ var4_2;
-    ** GOTO lbl14
-lbl6:
-    // 1 sources
-
+    var4_2 = 0;
+    var3_4 = b.D("\ue01e", (Integer)-1380990887);
+    var2_3 = b.D("\ue02e", (Integer)-1380990888, (Object)var1_1);
+    v0 = var3_4;
+    var4_2 = var2_3 == (-1889457531 | v0) - (-1889457531 & v0) ? 532838301 : 1363449407;
+    ** GOTO lbl19
     while (true) {
-        var3_3 = 213964138 ^ var4_2;
-        if (true) ** GOTO lbl14
+        var4_2 = 1406182180;
+        if (true) ** GOTO lbl19
         break;
     }
     block24: while (true) {
-        var3_3 = 1496824668 ^ var4_2;
-        if (true) ** GOTO lbl14
-        block25: while (true) {
-            var3_3 = -1084290194 ^ var4_2;
-lbl14:
-            // 4 sources
+        var4_2 = 1752419759;
+        ** GOTO lbl19
+        while (true) {
+            var4_2 = -1927500345;
+            if (true) ** GOTO lbl19
+            break;
+        }
+        block26: while (true) {
+            var4_2 = 645629358;
+lbl19:
+            // 5 sources
 
-            block26: while (true) {
-                switch (var3_3 ^ (42645133 ^ var4_2) ^ var4_2) {
-                    case 519885523: {
-                        iiiiiiIiIi.iiiiiIIiii("XC", (Integer)-377509530, (int)(-1312412160 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("oJ", (Integer)-377509527)));
-                        break;
-                    }
-                    case -282592044: {
-                        if (var2_4 != (-1312412123 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("Il", (Integer)-377509552))) {
-                            var3_3 = -1571424529 ^ var4_2;
-                            continue block26;
+            block27: while (true) {
+                block28: {
+                    v1 = var4_2;
+                    switch ((v1 | 2031780358) - (v1 & 2031780358)) {
+                        case 677254201: {
+                            v2 = var3_4;
+                            if (var2_3 == (-1889457530 | v2) - (-1889457530 & v2)) ** continue;
+                            var4_2 = 1131571824;
+                            continue block27;
                         }
-                        ** GOTO lbl53
-                    }
-                    case -741958338: {
-                        iiiiiiIiIi.iiiiiIIiii("xw", (Integer)-377509632, (int)(-1312412153 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("KK", (Integer)-377509629)));
-                        break;
-                    }
-                    case -1940003482: {
-                        if (iiiiiiIiIi.iiiiiIIiii("KJ", (Integer)-377509623) == (-1312412158 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("KI", (Integer)-377509626))) break;
-                        var3_3 = 2088040420 ^ var4_2;
-                        continue block26;
-                    }
-                    case -528696582: {
-                        iiiiiiIiIi.iiiiiIIiii("xK", (Integer)-377509628, (int)(-1312412159 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("Kw", (Integer)-377509625)));
-                        break;
-                    }
-                    case -1517161189: {
-                        iiiiiiIiIi.iiiiiIIiii("XS", (Integer)-377509526, (int)(-1312412158 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("oS", (Integer)-377509523)));
-                        break;
-                    }
-                    case -985663934: {
-                        if (iiiiiiIiIi.iiiiiIIiii("Ko", (Integer)-377509627) == (-1312412160 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("Kx", (Integer)-377509630))) break;
-                        var3_3 = 1338953760 ^ var4_2;
-                        ** GOTO lbl58
-                    }
-                    case 1046330353: {
-                        if (var2_4 == (-1312412124 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("IC", (Integer)-377509551))) continue block25;
-                        ** continue;
-                    }
-                    case 592922224: {
-                        if (iiiiiiIiIi.iiiiiIIiii("oM", (Integer)-377509521) == (-1312412159 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("oP", (Integer)-377509524))) break;
-                        var3_3 = 966375429 ^ var4_2;
-                        ** GOTO lbl58
-                    }
-                    case 260143690: {
-                        if (iiiiiiIiIi.iiiiiIIiii("oa", (Integer)-377509525) == (-1312412153 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("od", (Integer)-377509528))) break;
-                        ** GOTO lbl60
-                    }
-                    case 77231839: {
-                        return;
-                    }
-lbl53:
-                    // 1 sources
+                        case 1600194472: {
+                            v3 = var3_4;
+                            if (b.D("\ue016", (Integer)-1380990895) == (-1889457501 | v3) - (-1889457501 & v3)) continue block24;
+                            var4_2 = 152800699;
+                            continue block27;
+                        }
+                        case 1011975516: {
+                            v4 = var3_4;
+                            b.D("\ue00e", (Integer)-1380990882, (int)((-1889457502 | v4) - (-1889457502 & v4)));
+                            continue block24;
+                        }
+                        case 979953782: {
+                            v5 = var3_4;
+                            if (var2_3 == (-1889457529 | v5) - (-1889457529 & v5)) ** continue;
+                            ** break;
+                        }
+                        case -200921151: {
+                            v6 = var3_4;
+                            if (b.D("\ue01c", (Integer)-1380990885) == (-1889457502 | v6) - (-1889457502 & v6)) continue block24;
+                            var4_2 = 515781560;
+                            continue block27;
+                        }
+                        case 1879117757: {
+                            v7 = var3_4;
+                            b.D("\ue000", (Integer)-1380990896, (int)((-1889457500 | v7) - (-1889457500 & v7)));
+                            continue block24;
+                        }
+                        case 1725494683: {
+                            v8 = var3_4;
+                            if (b.D("\ue018", (Integer)-1380990881) == (-1889457503 | v8) - (-1889457503 & v8)) continue block24;
+                            var4_2 = 1162544986;
+                            continue block27;
+                        }
+                        case 850545794: {
+                            v9 = var3_4;
+                            b.D("\ue00c", (Integer)-1380990884, (int)((-1889457501 | v9) - (-1889457501 & v9)));
+                            continue block24;
+                        }
+                        case 1738846654: {
+                            v10 = var3_4;
+                            b.D("\ue00a", (Integer)-1380990886, (int)((-1889457503 | v10) - (-1889457503 & v10)));
+                            continue block24;
+                        }
+                        default: {
+                            continue block27;
+                        }
+lbl74:
+                        // 1 sources
 
-                    var3_3 = -1819723948 ^ var4_2;
-                    continue block26;
-                    case -1865901964: {
-                        if (var2_4 == (-1312412117 ^ var4_2 ^ iiiiiiIiIi.iiiiiIIiii("oO", (Integer)-377509522))) continue block24;
-                        var3_3 = 1343532743 ^ var4_2;
+                        var4_2 = 1626691417;
+                        continue block27;
+                        case 717889826: {
+                            v11 = var3_4;
+                            if (b.D("\ue01a", (Integer)-1380990883) == (-1889457500 | v11) - (-1889457500 & v11)) continue block24;
+                            var4_2 = 1269354116;
+                            continue block27;
+                        }
+                        case 435148127: {
+                            v12 = var3_4;
+                            if (var2_3 == (-1889457528 | v12) - (-1889457528 & v12)) continue block26;
+                            break block28;
+                        }
+                        case 292114345: {
+                            return;
+                        }
+                        case 757744865: 
                     }
-lbl58:
-                    // 4 sources
-
-                    default: {
-                        continue block26;
-                    }
-lbl60:
-                    // 1 sources
-
-                    var3_3 = -2097897523 ^ var4_2;
-                    continue block26;
-                    case -870521895: 
+                    continue block24;
                 }
-                var3_3 = -1735246911 ^ var4_2;
+                var4_2 = 1412482791;
             }
             break;
         }

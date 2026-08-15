@@ -9,19 +9,9 @@ import SwitchIcon from "@icons/SwitchIcon.astro";
 
 const features = [
   {
-    Icon: LockIcon,
-    title: "Memory Safe String Encryption",
-    text: "Decrypts strings without any performance overhead and no string is saved into the memory.",
-  },
-  {
     Icon: HierarchyIcon,
     title: "Name Obfuscation",
     text: "Rename classes, fields, and methods without destroying the hierarchy.",
-  },
-  {
-    Icon: CrosshairIcon,
-    title: "Opaque Predicate Obfuscation",
-    text: "Mislead conditions without any performance overhead.",
   },
   {
     Icon: SwitchIcon,
@@ -29,15 +19,96 @@ const features = [
     text: "Convert switch table to ifs to make reverse engineering harder.",
   },
   {
+    Icon: PluginsIcon,
+    title: "Paper, Bungee & Velocity Support",
+    text: "Natively supports Minecraft plugins & mods without breaking anything.",
+  },
+  {
+    Icon: LockIcon,
+    title: "Documentation",
+    text: "Comes with documentation on how to write proper authentication system.",
+  },
+  // --- Resource encryption ---
+  {
+    Icon: LockIcon,
+    title: "Resource Encryption",
+    text: "Encrypt, bundle & compress resources.",
+  },
+
+  // --- Code structure transformers ---
+  {
     Icon: RemoveIcon,
-    title: "Dead code remover",
-    text: "Remove dead codes to reduce the output size.",
+    title: "Method Inlining",
+    text: "Inline eligible method calls to obscure control flow and reduce call-graph clarity.",
+  },
+  {
+    Icon: RemoveIcon,
+    title: "Annotation Encryption",
+    text: "Encrypt strings & numbers in annotations.",
+  },
+  {
+    Icon: CrosshairIcon,
+    title: "Line Number Obfuscation",
+    text: "Scramble line number metadata to make stack traces harder to map back to source.",
   },
   {
     Icon: PluginsIcon,
-    title: "Paper, Bungee & Velocity Support",
-    text: "Natively supports Minecraft plugins without breaking anything.",
+    title: "Useless Reference Injection",
+    text: "Dead code insertion like never seen before.",
   },
+
+  // --- String / number / constant protection ---
+  {
+    Icon: LockIcon,
+    title: "String Encryption",
+    text: "Use AES-CBC, SHA256 & MD5 and lookup tables to hide string literals.",
+  },
+  {
+    Icon: HierarchyIcon,
+    title: "Local Variable Table Obfuscation",
+    text: "Pack every two local integers into one long.",
+  },
+  {
+    Icon: LockIcon,
+    title: "Number Encryption",
+    text: "Encrypt numbers with class salts.",
+  },
+  {
+    Icon: LockIcon,
+    title: "Constant Export & Encryption",
+    text: "Export all string constants into one resource file.",
+  },
+
+  // --- Reference / method integrity ---
+  {
+    Icon: CrosshairIcon,
+    title: "Method Salting",
+    text: "Pass keys through method parameters.",
+  },
+  {
+    Icon: HierarchyIcon,
+    title: "Reference Obfuscation",
+    text: "Hide method & field references.",
+  },
+
+  // --- Control / exception flow ---
+  {
+    Icon: CrosshairIcon,
+    title: "Control Flow Flattening",
+    text: "Flatten control flow & shuffle blocks",
+  },
+  {
+    Icon: CrosshairIcon,
+    title: "Exception Flow Obfuscation",
+    text: "Add dead exception handlers to mess with decompilers.",
+  },
+
+  // --- VM ---
+  {
+    Icon: LockIcon,
+    title: "Virtual Machine Protection",
+    text: "Interpret code through a proprietary VM layer.",
+  }
 ];
 ---
 
