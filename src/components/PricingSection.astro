@@ -4,48 +4,52 @@ import PricingCard from "./cards/PricingCard.astro";
 
 const pricingPlans = [
   {
-    tier: "Full",
-    price: "35 USD / 6 Months",
+    tier: "Standard",
+    price: "$35",
+    period: "6 months",
+    popular: false,
+    summary: "Full protection for short-term or single-release projects.",
     features: [
-      "Class, Field and Method name renaming",
-      "Annotation encryption",
+      "Class, field & method name renaming",
+      "Annotation & resource encryption",
       "Constant exporting to file",
       "Control flow flattening",
       "Line number mangling",
       "Method inlining",
-      "Integer encrypter with misc types",
-      "String encrypter",
-      "Resource Encryption",
+      "Number & string encryption",
       "Reference obfuscation",
       "Switch to if conversion",
-      "Junkcode insertion",
-      "Code Virtualization",
-      "Other miscellaneous obfuscation",
+      "Junk code insertion",
+      "Code virtualization",
+      "Miscellaneous obfuscations",
     ],
-    buttonText: "Buy now",
+    note: "One-time payment. Free updates for 6 months.",
+    buttonText: "Get 6 Months",
     buttonUrl: discordUrl,
   },
   {
-      tier: "Full",
-      price: "60 USD / 12 Months",
-      features: [
-          "Class, Field and Method name renaming",
-          "Annotation encryption",
-          "Constant exporting to file",
-          "Control flow flattening",
-          "Line number mangling",
-          "Method inlining",
-          "Integer encrypter with misc types",
-          "String encrypter",
-          "Resource Encryption",
-          "Reference obfuscation",
-          "Switch to if conversion",
-          "Junkcode insertion",
-          "Code Virtualization",
-          "Other miscellaneous obfuscation",
-      ],
-      buttonText: "Buy now",
-      buttonUrl: discordUrl,
+    tier: "Annual",
+    price: "$60",
+    period: "12 months",
+    popular: true,
+    summary: "Best value for long-running, continuously updated projects.",
+    features: [
+      "Class, field & method name renaming",
+      "Annotation & resource encryption",
+      "Constant exporting to file",
+      "Control flow flattening",
+      "Line number mangling",
+      "Method inlining",
+      "Number & string encryption",
+      "Reference obfuscation",
+      "Switch to if conversion",
+      "Junk code insertion",
+      "Code virtualization",
+      "Miscellaneous obfuscations",
+    ],
+    note: "One-time payment. Free updates for 12 months.",
+    buttonText: "Get 12 Months",
+    buttonUrl: discordUrl,
   },
 ];
 ---
@@ -53,18 +57,16 @@ const pricingPlans = [
 <section class="pricing-section website-section" id="pricing">
   <div class="section-header">
     <h2 class="title animate-fade-slide-down">Pricing Plans</h2>
+    <p class="subtitle animate-fade-slide-up">
+      One-time payment. Every plan includes the complete Nebula protection
+      pipeline.
+    </p>
   </div>
 
   <div class="pricing-grid">
     {
       pricingPlans.map((plan) => (
-        <PricingCard
-          tier={plan.tier}
-          price={plan.price}
-          features={plan.features}
-          buttonText={plan.buttonText}
-          buttonUrl={plan.buttonUrl}
-        />
+        <PricingCard {...plan} />
       ))
     }
   </div>
@@ -76,36 +78,40 @@ const pricingPlans = [
   }
 
   .section-header {
-    max-width: 800px;
+    max-width: 700px;
     padding: 0 1rem;
-    margin: 0 auto 2rem;
-    text-align: center;
+    margin-bottom: 0.5rem;
   }
 
   .title {
-    font-size: clamp(1.75rem, 5vw, 3rem);
-    margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
   }
 
   .pricing-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem 2rem;
-    max-width: 1200px;
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
+    align-items: stretch;
   }
 
   @media (min-width: 769px) {
     .pricing-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 360px) {
-    .pricing-card {
-      padding: 24px 16px;
-      min-height: auto;
+      align-items: center;
     }
   }
 </style>

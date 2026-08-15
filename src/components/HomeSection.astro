@@ -16,28 +16,34 @@ const stats: Stat[] = [
 ---
 
 <section class="home website-section" id="home">
-  <h1 class="title animate-fade-slide-down">Nebula Obfuscator</h1>
-  <p class="changing-text text-glow-pulse animate-fade-slide-up">
-    Enterprise-level security · High performance · Anti-reverse engineering
-  </p>
+  <div class="hero-badge animate-fade-slide-down">
+    <span class="hero-badge-dot"></span>
+    Java Bytecode Obfuscation
+  </div>
+
+  <h1 class="title animate-fade-slide-down">
+    Nebula <span>Obfuscator</span>
+  </h1>
+
   <p class="subtitle animate-fade-slide-up">
     Protect your Java applications with advanced bytecode obfuscation engineered
     for security, stability and professional pipelines.
   </p>
-  <Button
-    className="animate-fade-slide-up"
-    text="Get Started"
-    url={discordUrl}
-  />
+
+  <div class="hero-actions animate-fade-slide-up">
+    <Button text="Get Started" url={discordUrl} />
+    <Button text="See it in action" url="#demo" variant="ghost" newTab={false} />
+  </div>
+
   <article class="stats">
     {
       stats.map(({ countTarget, suffix, label }) => (
-        <div class="animate-fade-slide-up">
+        <div class="stat-card animate-fade-slide-up">
           <h3
             class="stat-number"
             data-count-target={countTarget}
             data-suffix={suffix}
-          />
+          ></h3>
           <span>{label}</span>
         </div>
       ))
@@ -52,46 +58,97 @@ const stats: Stat[] = [
     padding-top: calc(var(--nav-height) + var(--padding-top-nav-section));
   }
 
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-glow);
+  }
+
+  .hero-badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.16);
+  }
+
   .title {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 7vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    color: var(--text-primary);
+    max-width: 90vw;
+  }
+
+  .title span {
+    background: linear-gradient(135deg, var(--accent-bright), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .subtitle {
-    max-width: 650px;
+    max-width: 640px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .stats {
     margin-top: 2rem;
     display: flex;
-    gap: 2.5rem;
+    gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .stats div {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--glow-shadow-1);
-    padding: 18px 28px;
-    border-radius: 1rem;
-    min-width: 130px;
-    backdrop-filter: blur(6px);
-    transition: 0.3s ease;
+  .stat-card {
+    min-width: 150px;
+    padding: 20px 26px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
   }
 
-  .stats div:hover {
-    transform: translateY(-8px);
-    border-color: var(--purple2);
-    box-shadow: 0 0 18px var(--glow-shadow-3);
+  .stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-soft);
   }
 
-  .stats h3 {
-    color: var(--purple2);
-    font-size: 1.6rem;
+  .stat-card h3 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--accent-bright);
   }
 
-  .stats span {
-    color: #dcdcdc;
-    font-size: 0.9rem;
+  .stat-card span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
 </style>
 

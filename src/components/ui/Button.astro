@@ -1,43 +1,71 @@
 ---
-const { className = "", text = "Click", url = "#" } = Astro.props;
+const {
+  className = "",
+  text = "Click",
+  url = "#",
+  variant = "primary",
+  newTab = true,
+} = Astro.props;
+const isAnchor = url.startsWith("#");
 ---
 
 <a
-  class={`btn-animated ${className}`}
+  class={`btn ${variant === "primary" ? "btn-primary" : "btn-ghost"} ${className}`}
   href={url}
-  target="_blank"
-  rel="noopener noreferrer"
+  target={newTab && !isAnchor ? "_blank" : undefined}
+  rel={newTab && !isAnchor ? "noopener noreferrer" : undefined}
 >
   {text}
 </a>
 
 <style>
-  a {
-    padding: 14px 22px;
-    background: var(--purple1);
-    color: white;
-    border-radius: 8px;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 1rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      box-shadow 0.2s,
+      opacity 0.2s,
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
   }
 
-  a:hover {
-    background: var(--purple3);
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent) 0%, #4f46e5 100%);
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(99, 102, 241, 0.24);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 18px var(--accent-glow);
+    opacity: 0.95;
+  }
+
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-soft);
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .btn-ghost:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-mid);
+    color: var(--text-primary);
   }
 
   @media (min-width: 768px) {
-    a {
-      padding: 16px 24px;
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    a {
-      padding: 18px 26px;
-      font-size: 1.1rem;
+    .btn {
+      padding: 14px 26px;
     }
   }
 </style>

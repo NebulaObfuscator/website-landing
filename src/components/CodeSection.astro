@@ -1,11 +1,12 @@
 ---
 import JavaCodeCard from "./cards/JavaCodeCard.astro";
+import { samples } from "@constants/urls";
 import { originalCode, obfuscatedCode } from "@constants/javaCode";
 ---
 
 <section class="code-section website-section" id="demo">
   <div class="section-header">
-    <h2 class="title animate-fade-slide-down">See Nebula in action</h2>
+    <h2 class="title animate-fade-slide-down">See Nebula in Action</h2>
     <p class="subtitle animate-fade-slide-up">
       See how Nebula transforms your Java code into something completely
       unreadable, while maintaining all its functionality.
@@ -13,8 +14,77 @@ import { originalCode, obfuscatedCode } from "@constants/javaCode";
   </div>
 
   <div class="code-cards-container">
-    <JavaCodeCard title="Original code" code={originalCode} />
-    <JavaCodeCard title="Obfuscated code" code={obfuscatedCode} />
+    <JavaCodeCard title="Original Code" code={originalCode} />
+    <JavaCodeCard title="Obfuscated Code" code={obfuscatedCode} />
+  </div>
+
+  <div class="download-panel animate-fade-slide-up">
+    <div class="download-head">
+      <h3>Samples</h3>
+      <p>
+        Here are a few examples of Nebula-obfuscated applications, before and
+        after being obfuscated by Nebula.
+      </p>
+    </div>
+    <div class="download-table-wrap">
+      <table class="download-table">
+        <thead>
+          <tr>
+            <th class="th-name">Name</th>
+            <th class="th-dl">Original</th>
+            <th class="th-dl">Nebula</th>
+            <th class="th-info">Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            samples.map((sample) => (
+              <tr>
+                <td class="td-name">
+                  <span class="file-chip">{sample.name}</span>
+                </td>
+                <td class="td-dl">
+                  {
+                    sample.originalUrl ? (
+                      <a class="btn-ghost" href={sample.originalUrl} download
+                        >Download</a
+                      >
+                    ) : (
+                      <span class="na">Not Available</span>
+                    )
+                  }
+                </td>
+                <td class="td-dl">
+                  {
+                    sample.protectedUrl ? (
+                      <a class="btn-ghost" href={sample.protectedUrl} download
+                        >Download</a
+                      >
+                    ) : (
+                      <span class="na">Not Available</span>
+                    )
+                  }
+                </td>
+                <td class="td-info">
+                  <span>{sample.info}</span>
+                  {
+                    sample.githubUrl && (
+                      <a
+                        class="info-link"
+                        href={sample.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View source on GitHub</a
+                      >
+                    )
+                  }
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -29,13 +99,18 @@ import { originalCode, obfuscatedCode } from "@constants/javaCode";
   }
 
   .title {
-    font-size: clamp(1.75rem, 5vw, 3rem);
-    margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
   }
 
   .subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    max-width: 600px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 640px;
     margin: 0 auto;
   }
 
@@ -43,9 +118,188 @@ import { originalCode, obfuscatedCode } from "@constants/javaCode";
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 1.75rem;
     width: 100%;
     max-width: 1400px;
     padding: 0 1rem;
+  }
+
+  .download-panel {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 1rem;
+    text-align: left;
+  }
+
+  .download-head {
+    padding: 18px 22px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-bottom: none;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .download-head h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .download-head p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .download-table-wrap {
+    background: linear-gradient(
+      180deg,
+      var(--bg-elevated),
+      rgba(20, 20, 29, 0.95)
+    );
+    border: 1px solid var(--border-subtle);
+    border-top: none;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  .download-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .download-table th {
+    padding: 12px 22px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .download-table td {
+    padding: 16px 22px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: middle;
+  }
+
+  .download-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .download-table tbody tr {
+    transition: background 0.15s;
+  }
+
+  .download-table tbody tr:hover {
+    background: var(--bg-overlay);
+  }
+
+  .th-name {
+    text-align: left;
+  }
+
+  .th-dl,
+  .td-dl {
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .th-info {
+    text-align: left;
+  }
+
+  .td-name {
+    white-space: nowrap;
+  }
+
+  .file-chip {
+    display: inline-flex;
+    align-items: center;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .td-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .na {
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+
+  .info-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-bright);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .info-link:hover {
+    color: var(--cyan);
+    text-decoration: underline;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+
+  .btn-ghost:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-mid);
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .download-table th:nth-child(4),
+    .download-table td:nth-child(4) {
+      display: none;
+    }
+
+    .download-table th,
+    .download-table td {
+      padding: 12px 10px;
+    }
   }
 </style>

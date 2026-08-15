@@ -1,5 +1,5 @@
 ---
-import { discordUrl } from "@constants/urls";
+import { dashboardUrl, discordUrl } from "@constants/urls";
 import logo from "@public/logo.webp";
 ---
 
@@ -10,6 +10,16 @@ import logo from "@public/logo.webp";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Nebula — advanced Java bytecode obfuscation for Minecraft plugins and applications."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Nebula | Java Obfuscator</title>
   </head>
   <body>
@@ -35,7 +45,19 @@ import logo from "@public/logo.webp";
         <li class="nav-item"><a href="#demo">Demo</a></li>
         <li class="nav-item"><a href="#pricing">Pricing</a></li>
         <li class="nav-item">
-          <a href={String(discordUrl)} target="_blank" rel="noopener noreferrer"
+          <a
+            href={String(dashboardUrl)}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-discord"
+            href={String(discordUrl)}
+            target="_blank"
+            rel="noopener noreferrer"
             >Discord</a
           >
         </li>
@@ -61,32 +83,37 @@ import logo from "@public/logo.webp";
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    padding: 30px 50px;
+    padding: 0 48px;
+    background: rgba(8, 9, 15, 0.84);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
     z-index: 100;
-    border-bottom: 1px solid var(--purple-border-light);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.16);
   }
 
   .nav-title {
     display: flex;
     align-items: center;
-    color: var(--purple2);
-    gap: 8px;
-    font-size: 1.5rem;
+    gap: 10px;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
   }
 
   .nav-logo {
-    height: 1.3em;
-    width: 1.3em;
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 6px;
   }
 
   .nav-toggle {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     gap: 4px;
     cursor: pointer;
   }
@@ -94,11 +121,10 @@ import logo from "@public/logo.webp";
   .nav-toggle span {
     display: block;
     width: 100%;
-    height: 3px;
-    background: var(--purple2);
+    height: 2.5px;
+    background: var(--text-secondary);
     border-radius: 2px;
     transition: all 0.3s ease;
-    z-index: 100;
   }
 
   .nav-toggle span.open {
@@ -109,26 +135,25 @@ import logo from "@public/logo.webp";
     position: fixed;
     top: 0;
     right: 0;
-    width: 200px;
+    width: 220px;
     height: 100vh;
-    background: var(--nav-menu-bg);
-    backdrop-filter: blur(10px);
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    padding: 110px 24px 24px;
+    background: var(--bg-surface);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-left: 1px solid var(--border-subtle);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 100px 20px 20px 20px;
-    gap: 2rem;
-    font-size: 1.1rem;
-
+    align-items: stretch;
+    gap: 6px;
+    font-size: 1rem;
     pointer-events: none;
     visibility: hidden;
-
     transform: translateX(calc(100% + 20px));
     transition:
       transform 0.28s ease,
       visibility 0.28s ease;
+    box-shadow: var(--shadow-raised);
   }
 
   .nav-urls.open {
@@ -138,25 +163,53 @@ import logo from "@public/logo.webp";
   }
 
   .nav-item a {
+    display: block;
+    padding: 11px 14px;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .nav-item a:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+  }
+
+  .nav-discord {
+    margin-top: 8px;
+    text-align: center;
     color: #fff;
+    background: linear-gradient(135deg, var(--accent), #4f46e5);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.24);
+  }
+
+  .nav-discord:hover {
+    background: linear-gradient(135deg, var(--accent-bright), var(--accent));
   }
 
   footer {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: 40px 0;
-    border-top: 1px solid var(--purple1);
-    color: #fff;
+    padding: 36px 20px;
     margin-top: 4rem;
+    border-top: 1px solid var(--border-subtle);
+    background: rgba(8, 9, 15, 0.6);
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
   }
 
   footer span {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    max-width: 640px;
+    line-height: 1.6;
     padding: 0 20px;
-    white-space: normal;
   }
 
   @media (min-width: 769px) {
@@ -170,73 +223,77 @@ import logo from "@public/logo.webp";
       height: auto;
       background: transparent;
       backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-left: none;
       border-radius: 0;
       flex-direction: row;
+      align-items: center;
       padding: 0;
-      gap: 2rem;
-      font-size: 1rem;
-
+      gap: 6px;
+      font-size: 0.95rem;
       pointer-events: auto;
       visibility: visible;
       transform: none;
       transition: none;
+      box-shadow: none;
     }
 
-    .nav-item a {
-      color: #fff;
-      font-weight: 550;
+    .nav-discord {
+      margin-top: 0;
+      margin-left: 8px;
+      padding: 10px 18px;
     }
   }
 </style>
 
 <style is:global>
   :root {
-    /* Brand core colors */
-    --purple1: #8a2be2;
-    --purple2: #da70d6;
-    --purple3: #9370db;
+    /* Midnight theme */
+    --bg-base: #06070d;
+    --bg-surface: rgba(17, 18, 28, 0.92);
+    --bg-elevated: rgba(24, 24, 36, 0.95);
+    --bg-overlay: rgba(34, 36, 52, 0.95);
+    --bg-hover: rgba(255, 255, 255, 0.055);
 
-    /* Neutral colors */
-    --white: #ffffff;
-    --gray-light: #dcdcdc;
-    --gray-star: #ffffff;
-    --dark-bg-1: #0a0015;
-    --dark-bg-2: #1a0a2e;
-    --dark-bg-3: #2d1b4e;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-soft: rgba(255, 255, 255, 0.1);
+    --border-mid: rgba(255, 255, 255, 0.16);
 
-    /* Navigation backgrounds */
-    --nav-bg: rgba(10, 0, 21, 0.9);
-    --nav-menu-bg: rgba(10, 0, 21, 0.95);
+    --accent: #6366f1;
+    --accent-bright: #818cf8;
+    --accent-dim: rgba(99, 102, 241, 0.18);
+    --accent-glow: rgba(99, 102, 241, 0.34);
 
-    /* Borders & glows */
-    --purple-glow-strong: rgba(138, 43, 226, 0.5);
-    --purple-glow-soft: rgba(138, 43, 226, 0.4);
-    --purple-border-light: rgba(138, 43, 226, 0.3);
+    --cyan: #22d3ee;
+    --cyan-dim: rgba(34, 211, 238, 0.14);
 
-    /* Glow Animations */
-    --glow-purple-1: rgba(138, 43, 226, 0.45);
-    --glow-purple-2: rgba(218, 112, 214, 0.9);
-    --glow-purple-3: rgba(218, 112, 214, 0.3);
-    --glow-purple-4: rgba(218, 112, 214, 0.75);
-    --glow-shadow-1: rgba(138, 43, 226, 0.2);
-    --glow-shadow-2: rgba(218, 112, 214, 0.45);
-    --glow-shadow-3: rgba(138, 43, 226, 0.25);
+    --green: #34d399;
+    --green-dim: rgba(52, 211, 153, 0.15);
 
-    /* Scrollbar */
-    --scrollbar-thumb: rgba(138, 43, 226, 0.6);
-    --scrollbar-color: rgba(138, 43, 226, 0.5);
+    --red: #f87171;
+    --red-dim: rgba(248, 113, 113, 0.14);
 
-    /* Website Gradients */
-    --gradient-main: linear-gradient(
-      135deg,
-      var(--dark-bg-1) 0%,
-      var(--dark-bg-2) 50%,
-      var(--dark-bg-3) 100%
-    );
+    --pink: #f472b6;
+    --pink-dim: rgba(244, 114, 182, 0.15);
 
-    /* Navbar */
-    --nav-height: 90px;
-    --padding-top-nav-section: 50px;
+    --text-primary: #f1f0f5;
+    --text-secondary: #a8a5b8;
+    --text-muted: #6d6b7d;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --shadow-raised: 0 20px 45px rgba(0, 0, 0, 0.38);
+
+    --font-body: "Sora", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Layout */
+    --nav-height: 84px;
+    --padding-top-nav-section: 48px;
   }
 
   * {
@@ -247,18 +304,47 @@ import logo from "@public/logo.webp";
     text-decoration: none;
   }
 
-  html,
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    background:
+      radial-gradient(circle at top left, rgba(99, 102, 241, 0.16), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 30%),
+      var(--bg-base);
+    color: var(--text-primary);
     overflow-x: hidden;
+    position: relative;
   }
 
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--gradient-main);
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 90%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 90%);
+    pointer-events: none;
   }
 
-  body::-webkit-scrollbar {
-    display: none;
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+      ellipse at 20% 10%,
+      rgba(99, 102, 241, 0.08),
+      transparent 40%
+    );
+    pointer-events: none;
   }
 
   .website-section {
@@ -270,38 +356,58 @@ import logo from "@public/logo.webp";
     padding: 4rem 1rem 2rem;
     gap: 2.5rem;
     overflow: hidden;
-  }
-
-  .title {
-    color: var(--purple2);
-  }
-
-  .subtitle {
-    color: var(--gray-light);
-    font-size: 1.15rem;
-    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: calc(var(--nav-height) + 12px);
   }
 
   .stars {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
+    overflow: hidden;
   }
 
   .star {
     position: absolute;
     width: 2px;
     height: 2px;
-    background: var(--gray-star);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    opacity: 0.8;
+    animation: twinkle 3.5s ease-in-out infinite;
   }
 
-  /* Animations */
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.15;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Scroll animations */
+  .animate-fade-slide-down,
+  .text-glow-pulse,
+  .animate-fade-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+  }
+
+  .animate-fade-slide-down.active {
+    animation: fadeInSlideDown 1.2s ease forwards;
+  }
+
+  .animate-fade-slide-up.active {
+    animation: fadeInSlideUp 1.2s ease forwards 0.25s;
+  }
+
+  .text-glow-pulse.active {
+    animation: textGlowPulse 3s infinite ease-in-out;
+  }
 
   @keyframes fadeInSlideDown {
     from {
@@ -313,33 +419,6 @@ import logo from "@public/logo.webp";
       opacity: 1;
       transform: translateY(0) scale(1);
       filter: blur(0);
-    }
-  }
-
-  @keyframes textGlowPulse {
-    0% {
-      text-shadow: 0 0 10px var(--glow-purple-1);
-    }
-    50% {
-      text-shadow: 0 0 18px var(--glow-purple-2);
-    }
-    100% {
-      text-shadow: 0 0 10px var(--glow-purple-1);
-    }
-  }
-
-  @keyframes textGlowSoftPulse {
-    0% {
-      opacity: 0.8;
-      text-shadow: 0 0 6px var(--glow-purple-3);
-    }
-    50% {
-      opacity: 1;
-      text-shadow: 0 0 14px var(--glow-purple-4);
-    }
-    100% {
-      opacity: 0.8;
-      text-shadow: 0 0 6px var(--glow-purple-3);
     }
   }
 
@@ -356,85 +435,47 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes softDropShadowPulse {
+  @keyframes textGlowPulse {
     0% {
-      filter: drop-shadow(0 0 0px var(--glow-purple-3));
+      opacity: 0.85;
+      text-shadow: 0 0 8px rgba(129, 140, 248, 0.35);
     }
     50% {
-      filter: drop-shadow(0 0 6px var(--glow-shadow-3));
+      opacity: 1;
+      text-shadow: 0 0 16px rgba(34, 211, 238, 0.6);
     }
     100% {
-      filter: drop-shadow(0 0 0px var(--glow-purple-3));
+      opacity: 0.85;
+      text-shadow: 0 0 8px rgba(129, 140, 248, 0.35);
     }
-  }
-
-  @keyframes scaleUpShadowIn {
-    0% {
-      opacity: 0.9;
-      transform: scale(1);
-      filter: drop-shadow(0 0 0px var(--glow-shadow-1));
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1.06);
-      filter: drop-shadow(0 0 10px var(--glow-shadow-2));
-    }
-  }
-
-  @keyframes scaleDownShadowOut {
-    0% {
-      opacity: 1;
-      transform: scale(1.06);
-      filter: drop-shadow(0 0 10px var(--glow-purple-2));
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-      filter: drop-shadow(0 0 0px var(--glow-shadow-1));
-    }
-  }
-
-  .animate-fade-slide-down,
-  .text-glow-pulse,
-  .animate-fade-slide-up {
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(6px);
-    transition: none;
-  }
-
-  .animate-fade-slide-down.active {
-    animation:
-      fadeInSlideDown 1.2s ease forwards,
-      textGlowPulse 3.5s infinite ease-in-out 1.2s;
-  }
-
-  .text-glow-pulse.active {
-    animation: textGlowSoftPulse 3s infinite ease-in-out;
-    color: var(--purple2);
-    font-weight: bold;
-    font-size: 1.3rem;
-  }
-
-  .animate-fade-slide-up.active {
-    animation:
-      fadeInSlideUp 1.2s ease forwards 0.25s,
-      softDropShadowPulse 4.5s infinite ease-in-out 1.5s;
   }
 
   *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    scrollbar-color: var(--scrollbar-color) transparent;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
-    border-radius: 4px;
+    width: 10px;
+    height: 10px;
   }
 
   *::-webkit-scrollbar-track {
     background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.35);
+    border-radius: 5px;
+    border: 2px solid var(--bg-base);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.55);
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.45) transparent;
   }
 </style>
 

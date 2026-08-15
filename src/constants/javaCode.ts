@@ -61,8 +61,8 @@ export const obfuscatedCode: String = dedent(`
 @Override
 public void keyPressed(KeyEvent var1_1) {
     var4_2 = 0;
-    var3_4 = b.D("\ue01e", (Integer)-1380990887);
-    var2_3 = b.D("\ue02e", (Integer)-1380990888, (Object)var1_1);
+    var3_4 = b.D("\\ue01e", (Integer)-1380990887);
+    var2_3 = b.D("\\ue02e", (Integer)-1380990888, (Object)var1_1);
     v0 = var3_4;
     var4_2 = var2_3 == (-1889457531 | v0) - (-1889457531 & v0) ? 532838301 : 1363449407;
     ** GOTO lbl19
@@ -96,13 +96,13 @@ lbl19:
                         }
                         case 1600194472: {
                             v3 = var3_4;
-                            if (b.D("\ue016", (Integer)-1380990895) == (-1889457501 | v3) - (-1889457501 & v3)) continue block24;
+                            if (b.D("\\ue016", (Integer)-1380990895) == (-1889457501 | v3) - (-1889457501 & v3)) continue block24;
                             var4_2 = 152800699;
                             continue block27;
                         }
                         case 1011975516: {
                             v4 = var3_4;
-                            b.D("\ue00e", (Integer)-1380990882, (int)((-1889457502 | v4) - (-1889457502 & v4)));
+                            b.D("\\ue00e", (Integer)-1380990882, (int)((-1889457502 | v4) - (-1889457502 & v4)));
                             continue block24;
                         }
                         case 979953782: {
@@ -112,29 +112,29 @@ lbl19:
                         }
                         case -200921151: {
                             v6 = var3_4;
-                            if (b.D("\ue01c", (Integer)-1380990885) == (-1889457502 | v6) - (-1889457502 & v6)) continue block24;
+                            if (b.D("\\ue01c", (Integer)-1380990885) == (-1889457502 | v6) - (-1889457502 & v6)) continue block24;
                             var4_2 = 515781560;
                             continue block27;
                         }
                         case 1879117757: {
                             v7 = var3_4;
-                            b.D("\ue000", (Integer)-1380990896, (int)((-1889457500 | v7) - (-1889457500 & v7)));
+                            b.D("\\ue000", (Integer)-1380990896, (int)((-1889457500 | v7) - (-1889457500 & v7)));
                             continue block24;
                         }
                         case 1725494683: {
                             v8 = var3_4;
-                            if (b.D("\ue018", (Integer)-1380990881) == (-1889457503 | v8) - (-1889457503 & v8)) continue block24;
+                            if (b.D("\\ue018", (Integer)-1380990881) == (-1889457503 | v8) - (-1889457503 & v8)) continue block24;
                             var4_2 = 1162544986;
                             continue block27;
                         }
                         case 850545794: {
                             v9 = var3_4;
-                            b.D("\ue00c", (Integer)-1380990884, (int)((-1889457501 | v9) - (-1889457501 & v9)));
+                            b.D("\\ue00c", (Integer)-1380990884, (int)((-1889457501 | v9) - (-1889457501 & v9)));
                             continue block24;
                         }
                         case 1738846654: {
                             v10 = var3_4;
-                            b.D("\ue00a", (Integer)-1380990886, (int)((-1889457503 | v10) - (-1889457503 & v10)));
+                            b.D("\\ue00a", (Integer)-1380990886, (int)((-1889457503 | v10) - (-1889457503 & v10)));
                             continue block24;
                         }
                         default: {
@@ -147,7 +147,7 @@ lbl74:
                         continue block27;
                         case 717889826: {
                             v11 = var3_4;
-                            if (b.D("\ue01a", (Integer)-1380990883) == (-1889457500 | v11) - (-1889457500 & v11)) continue block24;
+                            if (b.D("\\ue01a", (Integer)-1380990883) == (-1889457500 | v11) - (-1889457500 & v11)) continue block24;
                             var4_2 = 1269354116;
                             continue block27;
                         }
